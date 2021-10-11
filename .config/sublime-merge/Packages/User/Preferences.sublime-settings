@@ -1,0 +1,18 @@
+{
+	"font_face": "Hack",
+	"side_bar_layout": "commit_graph_as_column",
+	"hardware_acceleration": "opengl",
+	"trim_trailing_white_space_on_save": false,
+	"render_commit_dialog_message_at_top": true,
+	"hide_menu": true,
+	"added_words":
+	[
+		"inclusivity"
+	],
+	"theme": "Merge Dark.sublime-theme",
+	"diff_style": "auto",
+	"auto_diff_style_min_chars": 70,
+	"font_size": 10,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+}

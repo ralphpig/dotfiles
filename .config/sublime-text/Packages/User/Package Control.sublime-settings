@@ -1,0 +1,47 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"ayu",
+		"Babel",
+		"C++11",
+		"CMake",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"FileManager",
+		"FindKeyConflicts",
+		"HTML Nest Comments",
+		"HTML-CSS-JS Prettify",
+		"LSP",
+		"LSP-dockerfile",
+		"LSP-eslint",
+		"LSP-pyright",
+		"LSP-typescript",
+		"LSP-vue",
+		"Meetio Theme",
+		"Mustache",
+		"Nord",
+		"Package Control",
+		"Pretty JSON",
+		"Rust Enhanced",
+		"Sass",
+		"SCSS",
+		"SqlBeautifier",
+		"SublimeLinter",
+		"SublimeLinter-contrib-bashate",
+		"SublimeLinter-cpplint",
+		"SublimeLinter-javac",
+		"SublimeLinter-php",
+		"Theme - Spacegray",
+		"TypeScript Syntax",
+		"Vintageous",
+		"Vue Syntax Highlight",
+	],
+	"repositories":
+	[
+	],
+}

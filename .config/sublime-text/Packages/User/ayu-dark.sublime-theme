@@ -1,0 +1,33 @@
+// Documentation at https://www.sublimetext.com/docs/themes.html
+{
+  "variables":
+  {
+  },
+  "rules":
+  [
+    {
+      "class": "sidebar_label",
+      "font.face": "Hack"
+    },
+    {
+      "class": "sidebar_heading",
+      "font.face": "Hack"
+    },
+    {
+      "class": "tab_label",
+      "font.face": "Hack"
+    },
+    {
+      "class": "label_control",
+      "font.face": "Hack"
+    },
+    {
+      "class": "quick_panel_label",
+      "font.face": "Hack"
+    },
+    {
+      "class": "quick_panel_path_label",
+      "font.face": "Hack"
+    }
+  ]
+}

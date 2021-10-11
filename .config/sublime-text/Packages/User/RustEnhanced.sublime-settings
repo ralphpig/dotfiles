@@ -1,0 +1,5 @@
+{
+  // "rust_syntax_hide_warnings": true,
+  "rust_phantom_style": "popup",
+  "rust_gutter_style": "circle",
+}

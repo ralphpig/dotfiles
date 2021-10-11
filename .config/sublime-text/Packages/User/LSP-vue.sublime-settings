@@ -1,0 +1,5 @@
+// Settings in here override those in "LSP-vue/LSP-vue.sublime-settings"
+
+{
+  "vetur.validation.template": false
+}

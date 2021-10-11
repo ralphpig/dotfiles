@@ -1,0 +1,14 @@
+[
+  { "keys": ["super+]"], "command": "next_view" },
+  { "keys": ["super+["], "command": "prev_view" },
+  { "keys": ["alt+backquote"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+  { "keys": ["ctrl+e"], "command": "emmet_expand_abbreviation" },
+  { "keys": ["shift+ctrl+`"], "command": "emmet_split_join_tag" },
+  {
+      "keys": ["ctrl+."],
+      "command": "emmet_enter_abbreviation"
+  },
+  { "keys": ["super+shift+up"], "command": "select_lines", "args": {"forward": false} },
+  { "keys": ["super+shift+down"], "command": "select_lines", "args": {"forward": true} },
+]
+

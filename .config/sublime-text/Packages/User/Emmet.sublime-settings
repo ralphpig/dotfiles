@@ -1,0 +1,10 @@
+{
+	"syntaxProfiles":
+	{
+		"vue": "html",
+		"vue-html": "html",
+	},
+  "auto_mark": false,
+	"telemetry": false,
+	"uid": "e4967462-697c-41b6-8313-a2c6dc082d20",
+}
