@@ -1,0 +1,426 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+;----------------------------------------------------------
+;			C O L O R S
+;----------------------------------------------------------
+
+[colors]
+
+## Base16 Nord
+# Author: arcticicestudio
+#
+# You can use these variables anywhere in the i3 configuration file.
+
+base00 = "#2E3440"
+base01 = "#3B4252"
+base02 = "#434C5E"
+base03 = "#4C566A"
+base04 = "#D8DEE9"
+base05 = "#E5E9F0"
+base06 = "#ECEFF4"
+base07 = "#8FBCBB"
+base08 = "#88C0D0"
+base09 = "#81A1C1"
+base0A = "#5E81AC"
+base0B = "#BF616A"
+base0C = "#D08770"
+base0D = "#EBCB8B"
+base0E = "#A3BE8C"
+base0F = "#B48EAD"
+
+background = ${colors.base00}
+foreground = ${colors.base04}
+
+
+;----------------------------------------------------------
+;			G L O B A L
+;----------------------------------------------------------
+
+[bar/main]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 21
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+border-size = 0
+
+
+;----------------------------------------------------------
+;			F O N T S
+;----------------------------------------------------------
+
+font-0 = Hack:style=Bold:pixelsize=9;2
+font-1 = Hack:style=Bold:pixelsize=9;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=9;2
+font-3 = Material Icons:pixelsize=12;4
+font-4 = Weather Icons:pixelsize=10;2
+
+
+;----------------------------------------------------------
+;  	    M O D U L E    L A Y O U T S
+;----------------------------------------------------------
+
+modules-left = i3 
+modules-center = player-mpris-tail sep pulseaudio sep toggle_audio  
+modules-right = weather sep temperature sep cpu sep memory sep filesystem sep date pad powermenu
+
+
+;----------------------------------------------------------
+;		I 3    M O D U L E
+;----------------------------------------------------------
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = ${colors.base06}
+label-mode-background = ${colors.base03}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-font = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = ${colors.base06}
+label-focused-padding = 2
+label-focused-font = 1
+label-focused-underline = ${colors.base09}
+
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-padding = 2
+label-visible-background = ${colors.base0E}
+label-visible-foreground = ${colors.background}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.base0D}
+label-urgent-padding = 2
+label-urgent-font = 1
+
+; Separator in between workspaces
+label-separator = |
+label-separator-background = ${colors.background}
+label-separator-foreground = ${colors.base09}
+
+;----------------------------------------------------------
+;		T E X T		M O D U L E S
+;----------------------------------------------------------
+
+[module/pad]
+type = custom/text
+content = " "
+content-padding = 0
+content-font = 1
+content-foreground = ${colors.base09}
+content-background = ${colors.base00}
+
+[module/sep]
+type = custom/text
+content = |
+content-padding = 1
+content-font = 1
+content-foreground = ${colors.base09}
+content-background = ${colors.base00}
+
+;----------------------------------------------------------
+;		   F I L E S Y S T E M
+;----------------------------------------------------------
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+fixed-values = true
+spacing = 2
+
+mount-0 = /
+mount-1 = /home
+
+format-mounted = <label-mounted>
+
+;  
+; %free%% %percentage_used%% %used%
+
+label-mounted = "%mountpoint%: %percentage_used%%"
+
+
+;----------------------------------------------------------
+;			   C P U
+;----------------------------------------------------------
+
+[module/cpu]
+type = internal/cpu
+interval = 1.0
+
+format = <label>
+;format = <ramp-coreload><label> 
+format-prefix = " "
+
+label = "%percentage:2%%"
+;
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+;ramp-coreload-7 = █
+
+
+;----------------------------------------------------------
+;			M E M O R Y
+;----------------------------------------------------------
+
+[module/memory]
+type = internal/memory
+interval = 1
+;
+format-prefix = " "
+format-margin-top = -5
+
+label = "%percentage_used%%"
+
+
+;----------------------------------------------------------
+;	      N E T W O R K
+;----------------------------------------------------------
+
+[module/wlan]
+type = internal/network
+; To test interface: $ ls -1 /sys/class/net/
+interface = wls1
+interval = 0.3
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = " %downspeed%"
+label-connected-foreground = ${colors.base01}
+label-connected-background = ${colors.base07}
+label-disconnected = ""
+label-disconnected-foreground = ${colors.base01}
+label-disconnected-background = ${colors.base07}
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+[module/ip_lan]
+type = custom/script
+interval = 3600 ;1 hour
+exec = ~/scripts/ip_lan.sh 
+
+click-left = ~/scripts/ip_lan.sh | xclip -sel clip
+ 
+label = "  %output%"
+
+
+[module/ip_wan]
+type = custom/script
+interval = 3600 ;1 hour
+exec = ~/scripts/ip_wan.sh 
+
+click-left = ~/scripts/ip_wan.sh | xclip -sel clip
+
+label = "  %output% "
+
+
+;----------------------------------------------------------
+;		     D A T E  &  T I M E
+;----------------------------------------------------------
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = " %a %b %d, %Y"
+time = " %l:%M:%S %p"
+
+label = %date% %time%
+
+
+;----------------------------------------------------------
+;			V O L U M E
+;----------------------------------------------------------
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
+
+format-volume = <ramp-volume><label-volume>
+
+label-volume = "%percentage%"
+label-muted = ""
+label-muted-padding = 2
+label-muted-foreground = ${colors.background}
+label-muted-background = ${colors.base0D}
+
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+
+
+;----------------------------------------------------------
+;		    T E M P E R A T U R E
+;----------------------------------------------------------
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+interval = 2
+
+format = <ramp> <label>
+format-warn-foreground = ${colors.background}
+format-warn-background = ${colors.base0B}
+
+label = "%temperature-c%"
+label-warn = "%temperature-c%"
+
+ramp-0 = ""
+ramp-1 = ""
+ramp-2 = ""
+ramp-3 = ""
+ramp-4 = ""
+
+
+;----------------------------------------------------------
+;		      P O W E R   M E N U
+;----------------------------------------------------------
+
+[module/powermenu]
+type = custom/menu
+expand-right = false
+label-open = ""
+label-open-padding = 1
+label-open-foreground = ${colors.base04}
+label-open-background = ${colors.base02}
+label-close = ""
+label-close-padding = 1
+label-close-foreground = ${colors.base04}
+label-close-background = ${colors.base02}
+
+; shutdown
+menu-0-0 = ""
+menu-0-0-exec = systemctl poweroff
+menu-0-0-padding = 1
+menu-0-0-foreground = ${colors.background}
+menu-0-0-background = ${colors.base0B}
+; reboot
+menu-0-1 = ""
+menu-0-1-padding = 1
+menu-0-1-exec = systemctl reboot
+menu-0-1-foreground = ${colors.base05}
+menu-0-1-background = ${colors.base02}
+; logout
+menu-0-2 = ""
+menu-0-2-padding = 1
+menu-0-2-exec = i3-msg exit
+menu-0-2-foreground = ${colors.base05}
+menu-0-2-background = ${colors.base02}
+; sleep
+menu-0-3 = ""
+menu-0-3-padding = 1
+menu-0-3-exec = bash ~/scripts/lock.sh && systemctl hibernate
+menu-0-3-foreground = ${colors.base06}
+menu-0-3-background = ${colors.base02}
+; lock
+menu-0-4 = ""
+menu-0-4-padding = 1
+menu-0-4-exec = ~/scripts/lock.sh
+menu-0-4-foreground = ${colors.background}
+menu-0-4-background = ${colors.base0E}
+
+
+;----------------------------------------------------------
+;		      S C R I P T    M O D U L E S
+;    https://github.com/jaagr/polybar/wiki/Module:-script
+;----------------------------------------------------------
+
+[module/player-mpris-tail]
+path = 
+
+type = custom/script
+exec = ~/.config/polybar/scripts/player-mpris-tail.py --icon-playing="" --icon-paused="" --icon-stopped="" --icon-none="" -f '{icon-reversed} {:t24:{title}:} @ {artist}'
+tail = true
+
+label = "%output%"
+click-left = ~/.config/polybar/scripts/player-mpris-tail.py previous
+click-right = ~/.config/polybar/scripts/player-mpris-tail.py next
+click-middle  = ~/.config/polybar/scripts/player-mpris-tail.py play-pause
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather.sh
+interval = 900 
+label = %output%
+format-font = 5
+
+[module/toggle_audio]
+type = custom/script
+exec = ~/scripts/toggle_audio.sh
+tail = true
+
+label = %output%
+format-font = 4
+
+click-left = ~/scripts/toggle_audio.sh toggle
+click-right = ~/scripts/toggle_audio.sh toggle keep_vol

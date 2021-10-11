@@ -1,0 +1,5 @@
+dmenu.font: IBM Plex Mono:style=Regular:pixelsize=11
+dmenu.background: #1D2021
+dmenu.foreground: #D5C5A1
+dmenu.selbackground: #83A598
+dmenu.selforeground: #1D2021

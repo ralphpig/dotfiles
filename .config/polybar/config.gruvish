@@ -1,0 +1,631 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+;----------------------------------------------------------
+;			C O L O R S
+;----------------------------------------------------------
+
+[colors]
+
+;    background: '0x1d2021'
+;    foreground: '0xd5c4a1'
+;
+;    text: '0x1d2021'
+;    cursor: '0xd5c4a1'
+;  normal:
+;    black:   '0x1d2021'
+;    red:     '0xfb4934'
+;    green:   '0xb8bb26'
+;    yellow:  '0xfabd2f'
+;    blue:    '0x83a598'
+;    magenta: '0xd3869b'
+;    cyan:    '0x8ec07c'
+;    white:   '0xd5c4a1'
+;  bright:
+;    black:   '0x665c54'
+;    red:     '0xfb4934'
+;    green:   '0xb8bb26'
+;    yellow:  '0xfabd2f'
+;    blue:    '0x83a598'
+;    magenta: '0xd3869b'
+;    cyan:    '0x8ec07c'
+;    white:   '0xfbf1c7'
+
+
+## Base16 Gruvbox dark, hard
+base00 = "#1d2021"
+base01 = "#3c3836"
+base02 = "#504945"
+base03 = "#665c54"
+base04 = "#bdae93"
+base05 = "#d5c4a1"
+base06 = "#ebdbb2"
+base07 = "#fbf1c7"
+base08 = "#fb4934"
+base09 = "#fe8019"
+base0A = "#fabd2f"
+base0B = "#b8bb26"
+base0C = "#8ec07c"
+base0D = "#83a598"
+base0E = "#d3869b"
+base0F = "#d65d0e"
+
+background = ${colors.base00}
+foreground = ${colors.base05}
+
+
+;----------------------------------------------------------
+;			G L O B A L
+;----------------------------------------------------------
+
+[bar/main]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 21
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+border-size = 0
+
+
+;----------------------------------------------------------
+;			F O N T S
+;----------------------------------------------------------
+
+font-0 = IBM Plex Mono:style=Bold:pixelsize=10;2
+font-1 = IBM Plex Mono:style=Bold:pixelsize=9;1
+font-2 = Fira Mono for Powerline:style=Bold:size=15;3
+font-3 = Font Awesome 5 Free Solid:pixelsize=10;2
+font-4 = Weather Icons:pixelsize=10;2
+font-5 = Material Icons:pixelsize=12;4
+
+
+;----------------------------------------------------------
+;  	    M O D U L E    L A Y O U T S
+;----------------------------------------------------------
+
+modules-left = i3 right_fg1 powermenu
+modules-center = right_0_D player-mpris-tail right_D_C pulseaudio toggle_audio left_C_D weather left_D_0
+modules-right = left_0_1 ip_lan ip_wan wlan left_1_2 cpu left_2_3 memory left_3_4 filesystem left_4_5 temperature left_5_6 date 
+
+
+;----------------------------------------------------------
+;		I 3    M O D U L E
+;----------------------------------------------------------
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+
+label-mode = "%{F${colors.base01}}%{F-} %mode% %{B${colors.base01}}%{F${colors.base03}}%{F-}%{B-}"
+label-mode-foreground = ${colors.base00}
+label-mode-background = ${colors.base03}
+
+label-focused = %index%
+label-focused-foreground = ${colors.base00}
+label-focused-background = ${colors.base07}
+label-focused-padding = 2
+label-focused-font = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.base07}
+label-occupied-background = ${colors.base01}
+label-occupied-padding = 2
+label-occupied-font = 2
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.base00}
+label-urgent-background = ${colors.base0F}
+label-urgent-padding = 2
+label-urgent-font = 2
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.base07}
+label-unfocused-background = ${colors.base01}
+label-unfocused-padding = 2
+label-unfocused-font = 2
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode = "%{F${colors.base01}}%{F-} %mode% %{B${colors.base01}}%{F${colors.base03}}%{F-}%{B-}"
+label-mode-foreground = ${colors.base00}
+label-mode-background = ${colors.base03}
+
+label-focused = %index%
+label-focused-foreground = ${colors.base00}
+label-focused-background = ${colors.base07}
+label-focused-padding = 2
+label-focused-font = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.base07}
+label-occupied-background = ${colors.base01}
+label-occupied-padding = 2
+label-occupied-font = 2
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.base00}
+label-urgent-background = ${colors.base0F}
+label-urgent-padding = 2
+label-urgent-font = 2
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.base07}
+label-unfocused-background = ${colors.base01}
+label-unfocused-padding = 2
+label-unfocused-font = 2
+
+;----------------------------------------------------------
+;		T E X T		M O D U L E S
+;----------------------------------------------------------
+
+[module/left_0_1]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base01}
+content-background = ${colors.base00}
+
+[module/left_1_2]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base02}
+content-background = ${colors.base01}
+
+[module/left_2_3]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base03}
+content-background = ${colors.base02}
+
+[module/left_3_4]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base04}
+content-background = ${colors.base03}
+
+[module/left_4_5]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base05}
+content-background = ${colors.base04}
+
+[module/left_5_6]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base06}
+content-background = ${colors.base05}
+
+[module/left_C_D]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base0D}
+content-background = ${colors.base0C}
+
+[module/left_D_0]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base00}
+content-background = ${colors.base0D}
+
+[module/right_0_D]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base00}
+content-background = ${colors.base0D}
+
+[module/right_D_C]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base0D}
+content-background = ${colors.base0C}
+
+[module/right_fg1]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base01}
+content-background = ${colors.background}
+
+[module/right_bg1]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.background}
+content-background = ${colors.base01}
+
+[module/right_fg1_bgF]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.base01}
+content-background = ${colors.base0F}
+
+[module/right_bgF]
+type = custom/text
+content = 
+content-font = 3
+content-foreground = ${colors.background}
+content-background = ${colors.base0F}
+
+
+;----------------------------------------------------------
+;		   F I L E S Y S T E M
+;----------------------------------------------------------
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+fixed-values = true
+spacing = 0
+
+mount-0 = /
+mount-1 = /home
+
+format-mounted = <label-mounted>
+
+;  
+; %free%% %percentage_used%% %used%
+
+label-mounted = " %mountpoint%: %percentage_used%% "
+label-mounted-foreground = ${colors.base02}
+label-mounted-background = ${colors.base04}
+label-unmounted = "   %mountpoint% "
+label-unmounted-foreground = ${colors.base02}
+label-unmounted-background = ${colors.base04}
+
+
+
+;----------------------------------------------------------
+;			   C P U
+;----------------------------------------------------------
+
+[module/cpu]
+type = internal/cpu
+interval = 1.0
+
+format = <label>
+;format = <ramp-coreload><label> 
+format-prefix = "  "
+format-foreground = ${colors.base05}
+format-background = ${colors.base02}
+
+label = "%percentage:2%% "
+;
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+;ramp-coreload-7 = █
+
+
+;----------------------------------------------------------
+;			M E M O R Y
+;----------------------------------------------------------
+
+[module/memory]
+type = internal/memory
+interval = 1
+;
+format-prefix = "  "
+format-foreground = ${colors.base05}
+format-background = ${colors.base03}
+format-margin-top = -5
+
+label = "%percentage_used%% "
+
+
+;----------------------------------------------------------
+;	      N E T W O R K
+;----------------------------------------------------------
+
+[module/wlan]
+type = internal/network
+; To test interface: $ ls -1 /sys/class/net/
+interface = wls1
+interval = 0.3
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = " %downspeed%"
+label-connected-foreground = ${colors.base01}
+label-connected-background = ${colors.base07}
+label-disconnected = ""
+label-disconnected-foreground = ${colors.base01}
+label-disconnected-background = ${colors.base07}
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+
+[module/ip_lan]
+type = custom/script
+interval = 3600 ;1 hour
+exec = ~/scripts/ip_lan.sh 
+
+click-left = ~/scripts/ip_lan.sh | xclip -sel clip
+ 
+label = "  %output%"
+format-foreground = ${colors.base05}
+format-background = ${colors.base01}
+
+
+[module/ip_wan]
+type = custom/script
+interval = 3600 ;1 hour
+exec = ~/scripts/ip_wan.sh 
+
+click-left = ~/scripts/ip_wan.sh | xclip -sel clip
+
+label = "  %output% "
+format-foreground = ${colors.base05}
+format-background = ${colors.base01}
+
+
+;----------------------------------------------------------
+;		     D A T E  &  T I M E
+;----------------------------------------------------------
+
+[module/date]
+type = internal/date
+interval = 1
+
+format-foreground = ${colors.base02}
+format-background = ${colors.base06}
+
+date = " %a %b %d, %Y"
+date-alt = 
+time = " %l:%M:%S %p"
+time-alt = 
+
+label = " %date% %time% "
+
+
+;----------------------------------------------------------
+;			V O L U M E
+;----------------------------------------------------------
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
+
+format-volume = <ramp-volume><label-volume>
+
+label-volume = "%percentage% "
+label-volume-foreground = ${colors.base01}
+label-volume-background = ${colors.base0C}
+label-muted = "  muted"
+label-muted-foreground = ${colors.base01}
+label-muted-background = ${colors.base0C}
+
+ramp-volume-0 = "  "
+ramp-volume-0-foreground = ${colors.base01}
+ramp-volume-0-background = ${colors.base0C}
+ramp-volume-1 = "  "
+ramp-volume-1-foreground = ${colors.base01}
+ramp-volume-1-background = ${colors.base0C}
+ramp-volume-2 = "  "
+ramp-volume-2-foreground = ${colors.base01}
+ramp-volume-2-background = ${colors.base0C}
+ramp-volume-3 = "  "
+ramp-volume-3-foreground = ${colors.base01}
+ramp-volume-3-background = ${colors.base0C}
+
+
+;----------------------------------------------------------
+;			 B A T T E R Y
+;----------------------------------------------------------
+
+[module/battery]
+type = internal/battery
+; To list battery & adapter: $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC0
+full-at = 99
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.base07}
+format-charging-background = ${colors.base01}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.base07}
+format-discharging-background = ${colors.base01}
+format-full = <label-full>
+format-full-foreground = ${colors.base07}
+format-full-background = ${colors.base01}
+
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
+label-discharging-foreground = ${colors.base07}
+label-full = "  %percentage%% "
+ramp-capacity-0 = " "
+ramp-capacity-0-foreground = ${colors.base04}
+ramp-capacity-1 = " "
+ramp-capacity-1-foreground = ${colors.base04}
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+animation-charging-framerate = 750
+
+
+;----------------------------------------------------------
+;		    T E M P E R A T U R E
+;----------------------------------------------------------
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+interval = 2
+
+format = <ramp> <label>
+format-warn = " <ramp> <label-warn>"
+format-foreground = ${colors.base02}
+format-background = ${colors.base05}
+format-warn-foreground = ${colors.base01}
+format-warn-background = ${colors.base0F}
+
+label = "%temperature-c% "
+label-warn = "%temperature-c% "
+
+ramp-0 = " "
+ramp-1 = " "
+ramp-2 = " "
+ramp-3 = " "
+ramp-4 = " "
+
+
+;----------------------------------------------------------
+;		      P O W E R   M E N U
+;----------------------------------------------------------
+
+[module/powermenu]
+type = custom/menu
+
+;   
+label-open = " %{F#d65d0e}%{B#1d2021}%{T-}"
+label-open-font = 3
+label-open-foreground = ${colors.background}
+label-open-background = ${colors.base0F}
+label-close = " %{F#d65d0e}%{B#3c3836}%{B-}%{T-}"
+label-close-foreground = ${colors.background}
+label-close-background = ${colors.base0F}
+
+; lock
+menu-0-0 = "  "
+menu-0-0-exec = ~/scripts/lock.sh
+menu-0-0-foreground = ${colors.base05}
+menu-0-0-background = ${colors.base01}
+; logout
+menu-0-1 = "  "
+menu-0-1-exec = logout
+menu-0-1-foreground = ${colors.base05}
+menu-0-1-background = ${colors.base01}
+; reboot
+menu-0-2 = "  "
+menu-0-2-exec = systemctl reboot
+menu-0-2-foreground = ${colors.base05}
+menu-0-2-background = ${colors.base01}
+; sleep
+menu-0-3 = "  "
+menu-0-3-exec = bash ~/scripts/lock.sh && systemctl hibernate
+menu-0-3-foreground = ${colors.base05}
+menu-0-3-background = ${colors.base01}
+; shutdown
+menu-0-4 = "  "
+menu-0-4-exec = systemctl poweroff
+menu-0-4-foreground = ${colors.base05}
+menu-0-4-background = ${colors.base01}
+; end stripe
+menu-0-5 = ""
+menu-0-5-font = 3
+menu-0-5-foreground = ${colors.base01}
+menu-0-5-background = ${colors.base0F}
+menu-0-6 = ""
+menu-0-6-font = 3
+menu-0-6-foreground = ${colors.base0F}
+menu-0-6-background = ${colors.background}
+
+
+;----------------------------------------------------------
+;		      S C R I P T    M O D U L E S
+;    https://github.com/jaagr/polybar/wiki/Module:-script
+;----------------------------------------------------------
+
+[module/player-mpris-tail]
+path = ~/.config/polybar/scripts/player-mpris-tail.py
+
+type = custom/script
+exec = ${self.path} --icon-playing="" --icon-paused="" --icon-stopped="" --icon-none="" -f '{icon-reversed} {:t24:{title}:} @ {artist}'
+tail = true
+
+label = " %output%"
+format-foreground = ${colors.base01}
+format-background = ${colors.base0D}
+
+click-left =  ${self.path} previous
+click-right = ${self.path} next
+click-middle = ${self.path} play-pause
+
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather.sh
+interval = 900 
+label = " %output% "
+format-font = 5
+format-foreground = ${colors.base01}
+format-background = ${colors.base0D}
+
+[module/toggle_audio]
+type = custom/script
+exec = ~/scripts/toggle_audio.sh
+tail = true
+
+label = " %output% "
+format-font = 6
+format-foreground = ${colors.base01}
+format-background = ${colors.base0C}
+
+click-left = ~/scripts/toggle_audio.sh toggle
+click-right = ~/scripts/toggle_audio.sh toggle keep_vol
+
+
+
+[a_bank]
+a = 10
+
+
+[a_tmp]
+a = ${a_bank.a}
+
+[tmp]
+a = ${a_tmp.a}
