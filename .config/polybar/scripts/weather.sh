@@ -24,7 +24,15 @@ get_icon() {
     echo $icon
 }
 
-KEY="48f195de8150c165e37fce07bb84b250"
+DIR=$(dirname $(realpath $0))
+KEY_FILE="${DIR}/openweathermap.key"
+
+if [ ! -f ${KEY_FILE} ]; then
+    echo "Access key required in 'openweathermap.key'"
+    exit 1
+fi
+
+KEY=$(cat ${KEY_FILE})
 CITY=""
 UNITS="imperial"
 SYMBOL="°"
@@ -38,7 +46,7 @@ if [ -n "$CITY" ]; then
         CITY_PARAM="q=$CITY"
     fi
 
-    weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+    weather=$(curl -s "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
 else
     location=$(curl -sf https://location.services.mozilla.com/v1/geolocate?key=geoclue)
 		
@@ -46,14 +54,20 @@ else
         location_lat="$(echo "$location" | jq '.location.lat')"
         location_lon="$(echo "$location" | jq '.location.lng')"
 
-        weather=$(curl -sf "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS")
+        weather=$(curl -s "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS")
     fi
 fi
 
-if [ -n "$weather" ]; then
-    weather_temp=$(echo "$weather" | jq ".main.temp" | cut -d "." -f 1)
-    weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
 
-    echo "$(get_icon "$weather_icon")" "$weather_temp$SYMBOL"
+if [ -n "$weather" ]; then
+    weather_temp=$(echo "$weather" | jq ".main.temp | values" | cut -d "." -f 1)
+    weather_icon=$(echo "$weather" | jq -r ".weather[0].icon | values")
+    weather_message=$(echo "$weather" | jq -r ".message | values") 
+
+    if [ -n "$weather_message" ]; then
+        echo ${weather_message}
+    else
+        echo "$(get_icon "$weather_icon")" "$weather_temp$SYMBOL"
+    fi
 fi
 
