@@ -1,4 +1,4 @@
-export TERM=st
+export TERM=alacritty
 export TERMINAL=$(which $TERM)
 
 # Path to your oh-my-zsh installation.
@@ -10,7 +10,12 @@ bindkey -v
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="ys"
+# rkj-repos
+# xiong-chiamiov
+# ys
+# bureau
+# bira
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -125,6 +130,8 @@ alias sp='sudo pacman'
 alias cpwd='pwd | tee >(xclip -sel clip)' # copy and print cwd
 
 alias config='git --git-dir=$HOME/.config.git/'
+
+alias ssht='TERM=xterm-256color ssh'
 
 #
 # Functions

@@ -70,9 +70,8 @@ border-size = 0
 
 font-0 = Hack:style=Bold:pixelsize=9;2
 font-1 = Hack:style=Bold:pixelsize=9;2
-font-2 = Font Awesome 5 Free Solid:pixelsize=9;2
-font-3 = Material Icons:pixelsize=12;4
-font-4 = Weather Icons:pixelsize=10;2
+font-2 = Font Awesome 6 Free Solid:pixelsize=9;2
+font-3 = Weather Icons:pixelsize=10;2
 
 
 ;----------------------------------------------------------
@@ -308,7 +307,7 @@ use-ui-max = false
 format-volume = <ramp-volume><label-volume>
 
 label-volume = "%percentage%"
-label-muted = ""
+label-muted = ""
 label-muted-padding = 2
 label-muted-foreground = ${colors.background}
 label-muted-background = ${colors.base0D}
@@ -339,7 +338,7 @@ ramp-0 = ""
 ramp-1 = ""
 ramp-2 = ""
 ramp-3 = ""
-ramp-4 = ""
+ramp-4 = ""
 
 
 ;----------------------------------------------------------
@@ -349,35 +348,36 @@ ramp-4 = ""
 [module/powermenu]
 type = custom/menu
 expand-right = false
-label-open = ""
+label-open = ""
 label-open-padding = 1
 label-open-foreground = ${colors.base04}
 label-open-background = ${colors.base02}
 label-close = ""
+
 label-close-padding = 1
 label-close-foreground = ${colors.base04}
 label-close-background = ${colors.base02}
 
 ; shutdown
-menu-0-0 = ""
+menu-0-0 = ""
 menu-0-0-exec = systemctl poweroff
 menu-0-0-padding = 1
 menu-0-0-foreground = ${colors.background}
 menu-0-0-background = ${colors.base0B}
 ; reboot
-menu-0-1 = ""
+menu-0-1 = ""
 menu-0-1-padding = 1
 menu-0-1-exec = systemctl reboot
 menu-0-1-foreground = ${colors.base05}
 menu-0-1-background = ${colors.base02}
 ; logout
-menu-0-2 = ""
+menu-0-2 = ""
 menu-0-2-padding = 1
 menu-0-2-exec = i3-msg exit
 menu-0-2-foreground = ${colors.base05}
 menu-0-2-background = ${colors.base02}
 ; sleep
-menu-0-3 = ""
+menu-0-3 = ""
 menu-0-3-padding = 1
 menu-0-3-exec = bash ~/scripts/lock.sh && systemctl hibernate
 menu-0-3-foreground = ${colors.base06}
@@ -399,7 +399,7 @@ menu-0-4-background = ${colors.base0E}
 path = 
 
 type = custom/script
-exec = ~/.config/polybar/scripts/player-mpris-tail.py --icon-playing="" --icon-paused="" --icon-stopped="" --icon-none="" -f '{icon-reversed} {:t24:{title}:} @ {artist}'
+exec = ~/.config/polybar/scripts/player-mpris-tail.py --icon-playing="" --icon-paused="" --icon-stopped="" --icon-none="" -f '{icon-reversed} {:t24:{title}:} @ {artist}'
 tail = true
 
 label = "%output%"
@@ -412,7 +412,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/weather.sh
 interval = 900 
 label = %output%
-format-font = 5
+format-font = 4
 
 [module/toggle_audio]
 type = custom/script
@@ -420,7 +420,7 @@ exec = ~/scripts/toggle_audio.sh
 tail = true
 
 label = %output%
-format-font = 4
+format-font = 3
 
 click-left = ~/scripts/toggle_audio.sh toggle
 click-right = ~/scripts/toggle_audio.sh toggle keep_vol

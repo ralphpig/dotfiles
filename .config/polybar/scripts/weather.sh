@@ -2,22 +2,22 @@
 
 get_icon() {
     case $1 in
-        01d) icon="";;
-        01n) icon="";;
-        02d) icon="";;
-        02n) icon="";;
-        03*) icon="";;
-        04*) icon="";;
-        09d) icon="";;
-        09n) icon="";;
-        10d) icon="";;
-        10n) icon="";;
-        11d) icon="";;
-        11n) icon="";;
-        13d) icon="";;
-        13n) icon="";;
-        50d) icon="";;
-        50n) icon="";;
+        01d) icon="";;     # clear sky (day)
+        01n) icon="";;     # clear sky (night)
+        02d) icon="";;    # few clouds (day)
+        02n) icon="";;   # few clouds (night)
+        03*) icon="";;    # scattered clouds (day)
+        04*) icon="";;     # broken clouds (day)
+        09d) icon="";;     # shower rain (day)
+        09n) icon="";;     # shower rain (night)
+        10d) icon="";;    # rain (day)
+        10n) icon="";;   # rain (night)
+        11d) icon="";;    # thunderstorm (day)
+        11n) icon="";;     # thunderstorm (night)
+        13d) icon="";;    # snow (day)
+        13n) icon="";;     # snow (night)
+        50d) icon="";;   # mist (day)
+        50n) icon="";;   # mist (night)
         *) icon="";
     esac
 

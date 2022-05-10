@@ -9,10 +9,14 @@
 	[
 		"inclusivity"
 	],
-	"theme": "Merge Dark.sublime-theme",
+  "theme": "Dracula (Alucard).sublime-theme",
+  "color_scheme": "Dracula (Alucard).sublime-color-scheme",
+  // "theme": "Merge Palenight.sublime-theme",
+  // "color_scheme": "Merge Palenight.sublime-color-scheme",
 	"diff_style": "auto",
 	"auto_diff_style_min_chars": 70,
 	"font_size": 10,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
+	"update_check": false,
 }

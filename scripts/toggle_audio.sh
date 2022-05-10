@@ -8,8 +8,8 @@
 #  	toggle_audio toggle keep_vol		: Toggle between speaker and headphone without changing volume.
 
 TMP=/tmp/toggle_audio.tmp
-SP=
-HP=
+SP=
+HP=
 
 SPV=100%
 HPV=50%
