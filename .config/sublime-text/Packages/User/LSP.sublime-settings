@@ -10,6 +10,7 @@
 			"enabled": false
 		},
 	},
+	"document_highlight_style": "",
 	"lsp_code_actions_on_save":
 	{
 		"source.fixAll.eslint": true,

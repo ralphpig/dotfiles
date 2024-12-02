@@ -97,7 +97,8 @@ plugins=(git)
 # source
 #
 source $ZSH/oh-my-zsh.sh
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
+# source /usr/share/nvm/init-nvm.sh
 
 
 # 
@@ -109,17 +110,17 @@ export PGDATA=/usr/local/pgsql/data
 # 
 # PATH
 #
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/scripts:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/games/bin:$PATH"
-export PATH="$(yarn global bin):$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/scripts:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/games/bin:$PATH"
+# export PATH="$(yarn global bin):$PATH"
+# 
+# # pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 
 # 
 # aliases
@@ -143,10 +144,32 @@ function pdf {
 function calc {
 	printf "%s\n" "$*" | bc -l
 }
+function bwu {
+  export BW_SESSION=$(bw unlock --raw)
+}
 
 function randpass {
   LENGTH="${1:-64}"
   tr -cd '[:alnum:]' < /dev/urandom | head -c${LENGTH} | xclip -se clip
 }
 
+### Other Config
+# https://superuser.com/a/767491
+TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
+'avg shared (code):         %X KB'$'\n'\
+'avg unshared (data/stack): %D KB'$'\n'\
+'total (sum):               %K KB'$'\n'\
+'max memory:                %M MB'$'\n'\
+'page faults from disk:     %F'$'\n'\
+'other page faults:         %R'
 
+
+# nvm use --lts
+source ~/.profile
+
+# bun completions
+[ -s "/home/ralphpig/.bun/_bun" ] && source "/home/ralphpig/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

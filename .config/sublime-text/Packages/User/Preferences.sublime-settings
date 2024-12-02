@@ -1,11 +1,15 @@
 {
+	"node_path": {
+		"linux": "/usr/bin/node",
+	},
 	"hardware_acceleration": "opengl",
 	"bold_folder_labels": true,
 	"caret_extra_bottom": 1,
 	"caret_extra_top": 1,
 	"caret_extra_width": 1,
 	"caret_style": "blink",
-	"color_scheme": "Meetio Palenight.sublime-color-scheme",
+	"color_scheme": "Meetio Darker.sublime-color-scheme",
+	"default_line_ending": "unix",
 	"drag_text": false,
 	"enable_tab_scrolling": false,
 	"fade_fold_buttons": false,
@@ -31,15 +35,12 @@
 		"*.sublime-workspace",
 		"node_modules"
 	],
-	"font_face": "Hack",
-	"font_size": 8,
+	"font_face": "JetBrains Mono",
+	"font_size": 10,
 	"ignored_packages":
 	[
-		"Markdown",
 		"Rust",
-		"Six",
 		"Vintage",
-		"Vintageous",
 	],
 	"indent_guide_options":
 	[
@@ -49,6 +50,7 @@
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
 	"overlay_scroll_bars": "enabled",
+	"remember_workspace": false,
 	"rulers":
 	[
 		80
@@ -105,7 +107,17 @@
 		"vue",
 		"webpack",
 		"workspaces",
+		"fkeys",
+		"upsert",
+		"Upserting",
+		"transpiled",
+		"Cron",
+		"Uncategorized",
+		"saira",
+		"noop",
 	],
-	"neovintageous_build_version": 11100,
+	"neovintageous_build_version": 13200,
 	"vintageous_use_ctrl_keys": false,
+	"vintageous_use_super_keys": false,
+	"index_files": false,
 }

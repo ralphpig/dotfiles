@@ -10,5 +10,12 @@
   },
   { "keys": ["super+shift+up"], "command": "select_lines", "args": {"forward": false} },
   { "keys": ["super+shift+down"], "command": "select_lines", "args": {"forward": true} },
+
+  // Copilot
+  {
+    "keys": ["ctrl+shift+c"],
+    "command": "copilot_ask_completions",
+    "context": [{ "key": "copilot.is_authorized" }],
+  },
 ]
 
