@@ -111,6 +111,9 @@ with lib.hm.gvariant; {
     history = {
       size = 10000;
     };
+    historySubstringSearch = {
+      enable = true;
+    };
 
     oh-my-zsh = {
       enable = true;
