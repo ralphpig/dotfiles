@@ -56,6 +56,15 @@ with lib.hm.gvariant; {
 
     # ".zshrc".source = ./.zshrc;
     # ".profile".source = ./.profile;
+
+    ".config/sublime-text/Packages/User" = {
+      source = config.lib.file.mkOutOfStoreSymlink .config/sublime-text/Packages/User;
+      recursive = true;
+    };
+    ".config/sublime-merge/Packages/User" = {
+      source = config.lib.file.mkOutOfStoreSymlink .config/sublime-merge/Packages/User;
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -172,6 +181,14 @@ with lib.hm.gvariant; {
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
       ];
+    };
+
+    # Display
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-schedule-from = mkDouble 17.0;
+      night-light-schedule-to = mkDouble 6.0;
+      night-light-temperature = mkUint32 3700;
     };
 
     # Keyboard
