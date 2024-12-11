@@ -5,7 +5,7 @@
 	"hardware_acceleration": "opengl",
 	"trim_trailing_white_space_on_save": false,
 	"render_commit_dialog_message_at_top": true,
-	"hide_menu": true,
+	"hide_menu": false,
 	"added_words":
 	[
 		"inclusivity",

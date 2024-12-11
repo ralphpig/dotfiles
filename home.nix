@@ -145,6 +145,7 @@ with lib.hm.gvariant; {
       clock-show-weekday = true;
       clock-show-seconds = true;
       clock-format = "12h";
+      accent-color = "orange";
     };
 
     "org/gnome/mutter" = {
