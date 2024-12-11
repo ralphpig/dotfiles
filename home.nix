@@ -145,7 +145,20 @@ with lib.hm.gvariant; {
       clock-show-weekday = true;
       clock-show-seconds = true;
       clock-format = "12h";
-      accent-color = "orange";
+      accent-color = "red";
+    };
+
+    ## Wallpaper
+    "org/gnome/desktop/background" = {
+      picture-uri = "file:///home/ralphpig/dotfiles/wallpapers/nord/mountain-dark.jpg";
+      picture-uri-dark = "file:///home/ralphpig/dotfiles/wallpapers/nord/mountain-dark.jpg";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file:///home/ralphpig/dotfiles/wallpapers/nord/mountain-dark.jpg";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
     };
 
     "org/gnome/mutter" = {
