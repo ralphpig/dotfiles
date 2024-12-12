@@ -21,7 +21,7 @@ with lib.hm.gvariant; {
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -38,6 +38,7 @@ with lib.hm.gvariant; {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    gnomeExtensions.vitals
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -190,11 +191,26 @@ with lib.hm.gvariant; {
       disable-user-extensions = false;
       enabled-extensions = [
         "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "drive-menu@gnome-shell-extensions.gcampax.github.com"
-        "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
+        "Vitals@CoreCoding.com"
       ];
+    };
+
+    # Extension Config
+    "org/gnome/shell/extensions/vitals" = {
+      hot-sensors = [
+        "_processor_usage_"
+        "_memory_usage_"
+        "_storage_free_"
+        "_memory_swap_usage_"
+      ];
+    };
+
+    # Not used
+    "org/gnome/shell/extensions/system-monitor" = {
+      show-upload = false;
+      show-download = false;
     };
 
     # Display
@@ -249,11 +265,6 @@ with lib.hm.gvariant; {
       name = "Open Terminal";
       binding = "<Super>Return";
       command = "kgx";
-    };
-
-    "org/gnome/shell/extensions/system-monitor" = {
-      show-upload = false;
-      show-download = false;
     };
 
     # GTK
