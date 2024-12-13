@@ -5,59 +5,20 @@
   ...
 }:
 with lib.hm.gvariant; {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  programs.home-manager.enable = true;
+
   home.username = "ralphpig";
   home.homeDirectory = "/home/ralphpig";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
     gnomeExtensions.vitals
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = with config.lib.file; {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
-    # ".zshrc".source = ./.zshrc;
-    # ".profile".source = ./.profile;
-
     ".config/sublime-text/Packages/User" = {
       source = mkOutOfStoreSymlink .config/sublime-text/Packages/User;
     };
@@ -69,30 +30,11 @@ with lib.hm.gvariant; {
     };
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/ralphpig/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  programs.home-manager.enable = true;
-
   # Programs
-
   programs.git = {
     enable = true;
     userEmail = "mail@ralphpig.dev";
@@ -141,13 +83,25 @@ with lib.hm.gvariant; {
 
   # dconf
   dconf.settings = {
-    # GNOME
+    # Appearance
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       clock-show-weekday = true;
       clock-show-seconds = true;
       clock-format = "12h";
       accent-color = "red";
+    };
+    "org/gnome/desktop/datetime" = {
+      automatic-timezone = true;
+    };
+    "org/gtk/settings/file-chooser" = {
+      clock-format = "12h";
+    };
+    "org/gnome/mutter" = {
+      workspaces-only-on-primary = true;
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 10;
     };
 
     ## Wallpaper
@@ -161,23 +115,6 @@ with lib.hm.gvariant; {
       picture-uri = "file:///home/ralphpig/dotfiles/wallpapers/nord/mountain-dark.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
-    };
-
-    "org/gnome/mutter" = {
-      workspaces-only-on-primary = true;
-    };
-
-
-    "org/gnome/desktop/wm/preferences" = {
-      num-workspaces = 10;
-    };
-
-    "org/gnome/desktop/input-sources" = {
-      xkb-options = ["altwin:swap_alt_win"]; # Swap Super to Alt
-    };
-
-    "org/gnome/desktop/datetime" = {
-      automatic-timezone = true;
     };
 
     "org/gnome/shell" = {
@@ -238,6 +175,10 @@ with lib.hm.gvariant; {
     };
 
     # Keybindings
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = ["altwin:swap_alt_win"]; # Swap Super to Alt
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-left = ["<Super>a"];
       switch-to-workspace-right = ["<Super>d"];
@@ -281,10 +222,14 @@ with lib.hm.gvariant; {
       binding = "<Super>Return";
       command = "kgx";
     };
-
-    # GTK
-    "org/gtk/settings/file-chooser" = {
-      clock-format = "12h";
-    };
   };
+
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  #
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 }
