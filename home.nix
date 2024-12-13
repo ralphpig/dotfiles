@@ -43,7 +43,7 @@ with lib.hm.gvariant; {
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
+  home.file = with config.lib.file; {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -59,12 +59,13 @@ with lib.hm.gvariant; {
     # ".profile".source = ./.profile;
 
     ".config/sublime-text/Packages/User" = {
-      source = config.lib.file.mkOutOfStoreSymlink .config/sublime-text/Packages/User;
-      recursive = true;
+      source = mkOutOfStoreSymlink .config/sublime-text/Packages/User;
     };
     ".config/sublime-merge/Packages/User" = {
-      source = config.lib.file.mkOutOfStoreSymlink .config/sublime-merge/Packages/User;
-      recursive = true;
+      source = mkOutOfStoreSymlink .config/sublime-merge/Packages/User;
+    };
+    ".config/zed" = {
+      source = mkOutOfStoreSymlink .config/zed;
     };
   };
 
