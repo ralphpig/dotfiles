@@ -60,6 +60,7 @@
 	"show_line_endings": true,
 	"show_panel_on_build": true,
 	"spell_check": true,
+	"sublime_merge_path": "/run/current-system/sw/bin/sublime_merge",
 	"tab_size": 2,
 	"theme": "ayu-mirage.sublime-theme",
 	"translate_tabs_to_spaces": true,

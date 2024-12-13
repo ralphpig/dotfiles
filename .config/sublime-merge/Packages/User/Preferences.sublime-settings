@@ -22,4 +22,5 @@
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"update_check": false,
+	"editor_path": "sublime_text",
 }
