@@ -166,6 +166,7 @@ with lib.hm.gvariant; {
       workspaces-only-on-primary = true;
     };
 
+
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
     };
@@ -177,14 +178,22 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
     };
+
     "org/gnome/shell" = {
       last-selected-power-profile = "performance";
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
-        "microsoft-edge.desktop"
         "sublime_text.desktop"
         "sublime_merge.desktop"
+        "insomnia.desktop"
+        "microsoft-edge.desktop"
+        "spotify.desktop"
+        # PWAs; Should have same app-id, but not sure
+        "msedge-jnpecgipniidlgicjocehkhajgdnjekh-Default.desktop" # Protonmail
+        "msedge-agimnkijcaahngcdmfeangaknmldooml-Default.desktop" # Youtube
+        "msedge-ifpboanaelncmlfhjbnnloipmogocahb-Default.desktop" # Workflowy
+        "msedge-cifhbcnohmdccbgoicgdjpfamggdegmo-Default.desktop" # Teams
       ];
 
       # Extensions
@@ -253,6 +262,11 @@ with lib.hm.gvariant; {
       switch-to-application-7 = [];
       switch-to-application-8 = [];
       switch-to-application-9 = [];
+    };
+
+    "org/gnome/mutter/keybindings" = {
+      # disable <Super>p display type switching
+      switch-monitor = ["XF86Display"];
     };
 
     # Custom Keybinds
