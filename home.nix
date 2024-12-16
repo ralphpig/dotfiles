@@ -103,6 +103,9 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
     };
+    "org/gnome/shell/app-switcher" = {
+      current-workspace-only = true;
+    };
 
     ## Wallpaper
     "org/gnome/desktop/background" = {
