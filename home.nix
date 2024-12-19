@@ -125,6 +125,7 @@ with lib.hm.gvariant; {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
+        "dev.zed.Zed.desktop"
         "sublime_text.desktop"
         "sublime_merge.desktop"
         "insomnia.desktop"
