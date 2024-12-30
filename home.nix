@@ -102,6 +102,7 @@ with lib.hm.gvariant; {
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
+      focus-mode = "sloppy";
     };
     "org/gnome/shell/app-switcher" = {
       current-workspace-only = true;
