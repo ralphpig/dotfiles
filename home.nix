@@ -179,9 +179,9 @@ with lib.hm.gvariant; {
     };
 
     # Keybindings
-    "org/gnome/desktop/input-sources" = {
-      xkb-options = ["altwin:swap_alt_win"]; # Swap Super to Alt
-    };
+    # "org/gnome/desktop/input-sources" = {
+    #  xkb-options = ["altwin:swap_alt_win"]; # Swap Super to Alt
+    # };
 
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-left = ["<Super>a"];
