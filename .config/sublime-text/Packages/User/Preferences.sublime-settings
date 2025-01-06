@@ -120,5 +120,18 @@
 	"neovintageous_build_version": 13200,
 	"vintageous_use_ctrl_keys": false,
 	"vintageous_use_super_keys": false,
+	"vintageous_handle_keys": {
+		// Fix tab switching
+	  "<M-1>": false,
+	  "<M-2>": false,
+	  "<M-3>": false,
+	  "<M-4>": false,
+	  "<M-5>": false,
+	  "<M-6>": false,
+	  "<M-7>": false,
+	  "<M-8>": false,
+	  "<M-9>": false,
+	  "<M-0>": false,
+	},
 	"index_files": false,
 }
