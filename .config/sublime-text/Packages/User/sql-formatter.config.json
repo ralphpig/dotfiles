@@ -1,0 +1,9 @@
+{
+  "keywordCase": "upper",
+  "dataTypeCase": "lower",
+  "functionCase": "upper",
+  "paramTypes": {
+    "named": [":"],
+    "custom": [{ "regex": "\\$\\{[\\w]+\\}" }]
+  }
+}

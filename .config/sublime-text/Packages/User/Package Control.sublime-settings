@@ -43,8 +43,6 @@
 		"python-black",
 		"Rust Enhanced",
 		"Sass",
-		"sql-formatter",
-		"sublime-sql-formatter",
 		"SublimeLinter",
 		"SublimeLinter-contrib-bashate",
 		"SublimeLinter-cpplint",
@@ -57,7 +55,6 @@
 	],
 	"repositories":
 	[
-		"https://github.com/inceddy/sublime-sql-formatter.git",
 	],
 	"debug": true,
 }

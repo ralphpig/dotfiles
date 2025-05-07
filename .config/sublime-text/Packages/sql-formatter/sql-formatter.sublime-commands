@@ -1,0 +1,14 @@
+[
+	{
+		"caption": "sql-formatter: Format",
+		"command": "sql_formatter"
+	},
+	{
+		"caption": "sql-formatter: Format - Dialect",
+		"command": "sql_formatter_dialect"
+	},
+	{
+		"caption": "Preferences: sql-formatter config",
+		"command": "sql_formatter_preferences"
+	}
+]

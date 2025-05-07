@@ -22,6 +22,10 @@ with lib.hm.gvariant; {
     ".config/sublime-text/Packages/User" = {
       source = mkOutOfStoreSymlink .config/sublime-text/Packages/User;
     };
+    ".config/sublime-text/Packages/sql-formatter" = {
+      source = mkOutOfStoreSymlink .config/sublime-text/Packages/sql-formatter;
+    };
+
     ".config/sublime-merge/Packages/User" = {
       source = mkOutOfStoreSymlink .config/sublime-merge/Packages/User;
     };
@@ -105,7 +109,7 @@ with lib.hm.gvariant; {
           ($csv[0] | @csv),
           ($csv[1] | .[] | @csv)
         ' "$1"
-}
+      }
 
     '';
   };

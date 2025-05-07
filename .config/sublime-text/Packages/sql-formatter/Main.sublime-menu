@@ -1,0 +1,207 @@
+[
+    {
+        "id": "edit",
+        "children":
+        [
+            {
+                "id": "sql_formatter",
+                "caption": "sql-formatter: Format",
+                "command": "sql_formatter"
+            },
+            {
+                "caption": "sql-formatter: Format - Dialect",
+                "children":
+                [
+                    {
+                        "caption": "bigquery",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "bigquery"
+                        }
+                    },
+                    {
+                        "caption": "db2",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "db2"
+                        }
+                    },
+                    {
+                        "caption": "db2i",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "db2i"
+                        }
+                    },
+                    {
+                        "caption": "hive",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "hive"
+                        }
+                    },
+                    {
+                        "caption": "mariadb",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "mariadb"
+                        }
+                    },
+                    {
+                        "caption": "mysql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "mysql"
+                        }
+                    },
+                    {
+                        "caption": "n1ql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "n1ql"
+                        }
+                    },
+                    {
+                        "caption": "plsql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "plsql"
+                        }
+                    },
+                    {
+                        "caption": "postgresql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "postgresql"
+                        }
+                    },
+                    {
+                        "caption": "redshift",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "redshift"
+                        }
+                    },
+                    {
+                        "caption": "spark",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "spark"
+                        }
+                    },
+                    {
+                        "caption": "sqlite",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "sqlite"
+                        }
+                    },
+                    {
+                        "caption": "sql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "sql"
+                        }
+                    },
+                    {
+                        "caption": "tidb",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "tidb"
+                        }
+                    },
+                    {
+                        "caption": "trino",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "trino"
+                        }
+                    },
+                    {
+                        "caption": "transactsql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "transactsql"
+                        }
+                    },
+                    {
+                        "caption": "tsql",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "tsql"
+                        }
+                    },
+                    {
+                        "caption": "singlestoredb",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "singlestoredb"
+                        }
+                    },
+                    {
+                        "caption": "snowflake",
+                        "command": "sql_formatter",
+                        "args":
+                        {
+                            "dialect": "snowflake"
+                        }
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        "id": "preferences",
+        "children":
+        [
+            {
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "sql-formatter",
+                        "children":
+                        [
+                            {
+                                "caption": "Settings",
+                                "command": "edit_settings",
+                                "args":
+                                {
+                                    "base_file": "${packages}/sql-formatter/sql-formatter.sublime-settings",
+                                    "default": "{\n\t$0\n}\n"
+                                }
+                            },
+                            {
+                                "caption": "Key Bindings",
+                                "command": "edit_settings",
+                                "args":
+                                {
+                                    "base_file": "${packages}/sql-formatter/Default ($platform).sublime-keymap",
+                                    "default": "[\n\t$0\n]\n"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
