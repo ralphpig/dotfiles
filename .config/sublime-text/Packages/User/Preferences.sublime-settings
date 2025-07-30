@@ -35,7 +35,7 @@
 		"*.sublime-workspace",
 		"node_modules"
 	],
-	"font_face": "JetBrains Mono",
+	"font_face": "Iosevka Ralphpig",
 	"font_size": 10,
 	"ignored_packages":
 	[

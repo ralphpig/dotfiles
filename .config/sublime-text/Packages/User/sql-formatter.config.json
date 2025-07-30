@@ -4,6 +4,6 @@
   "functionCase": "upper",
   "paramTypes": {
     "named": [":"],
-    "custom": [{ "regex": "\\$\\{[\\w]+\\}" }]
+    "custom": [{ "regex": "\\$\\{[\\w()._-]+\\}" }]
   }
 }

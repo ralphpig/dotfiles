@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4o"
@@ -15,74 +15,29 @@
     "version": "2"
   },
   "base_keymap": "SublimeText",
+  // Vim
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 14,
+  "vim": {
+    "use_system_clipboard": "on_yank"
+  },
+  // Font
+  "ui_font_size": 14,
+  "ui_font_family": "Iosevka Ralphpig",
+  "buffer_font_size": 12,
+  "buffer_font_family": "Iosevka Ralphpig",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Andromeda"
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
   },
+  // Format / LSP
   "format_on_save": "on",
   "formatter": {
-    "external": {
-      "command": "eslint",
-      "arguments": [
-        "--stdin-filepath",
-        "{buffer_path}",
-        "--fix"
-      ]
+    "code_actions": {
+      "source.fixAll.eslint": true
     }
   },
-  "lsp": {
-    "deno": {
-      "settings": {
-        "deno": {
-          "enable": true
-        }
-      }
-    }
-  },
-  "languages": {
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
-      }
-    },
-    "TypeScript": {
-      "language_servers": [
-        "deno",
-        "!typescript-language-server",
-        "!vtsls",
-        "!eslint"
-      ],
-      "formatter": "language_server",
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
-      }
-    },
-    "TSX": {
-      "language_servers": [
-        "deno",
-        "!typescript-language-server",
-        "!vtsls",
-        "!eslint"
-      ],
-      "formatter": "language_server"
-    },
-    "Vue.js": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
-      }
-    }
+  "prettier": {
+    "allowed": false
   }
 }

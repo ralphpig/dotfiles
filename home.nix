@@ -16,6 +16,8 @@ with lib.hm.gvariant; {
     # '')
 
     gnomeExtensions.vitals
+    gnomeExtensions.windownavigator
+    gnomeExtensions.places-status-indicator
   ];
 
   home.file = with config.lib.file; {
@@ -84,13 +86,13 @@ with lib.hm.gvariant; {
       cpwd = "pwd | tee >(wl-copy)";
     };
 
-    initExtra = ''
+    initContent = ''
       json2csv () {
         jq -r '
           def flatten($pfx):
-            to_entries | 
+            to_entries |
             map(
-              . as $pair | 
+              . as $pair |
               if $pair.value | type == "object" then
                 ($pair.value | flatten($pfx + $pair.key + "_"))
               else
@@ -102,7 +104,7 @@ with lib.hm.gvariant; {
             reduce $keys[] as $key
               (.; if has($key) | not then .[$key] = null else . end);
 
-          [ 
+          [
             (. | map(flatten("")) | add | keys_unsorted | sort) as $keys | $keys,
             (. | map(flatten("") | set_null_key($keys) | to_entries | sort_by(.key) | from_entries | map(.)) )
           ] as $csv |
@@ -123,6 +125,9 @@ with lib.hm.gvariant; {
       clock-show-seconds = true;
       clock-format = "12h";
       accent-color = "red";
+      font-name = "Iosevka Ralphpig Proportional 11";
+      document-font-name = "Iosevka Ralphpig Proportional 11";
+      monospace-font-name = "Iosevka Ralphpig 11";
     };
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
@@ -131,6 +136,7 @@ with lib.hm.gvariant; {
       clock-format = "12h";
     };
     "org/gnome/mutter" = {
+      dynamic-workspaces = false;
       workspaces-only-on-primary = true;
     };
     "org/gnome/desktop/wm/preferences" = {
@@ -174,11 +180,10 @@ with lib.hm.gvariant; {
 
       # Extensions
       disable-user-extensions = false;
-      enabled-extensions = [
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
-        "Vitals@CoreCoding.com"
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        places-status-indicator.extensionUuid
+        windownavigator.extensionUuid
+        vitals.extensionUuid
       ];
     };
 
@@ -191,6 +196,12 @@ with lib.hm.gvariant; {
         "_memory_swap_usage_"
       ];
     };
+
+    # Application
+    "org/gnome/Console" = {
+      custom-font = "Iosevka Ralphpig Term 10";
+    };
+
 
     # Not used
     "org/gnome/shell/extensions/system-monitor" = {

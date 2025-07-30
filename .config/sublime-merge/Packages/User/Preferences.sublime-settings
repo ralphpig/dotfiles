@@ -1,6 +1,6 @@
 {
 	"remember_workspace": false,
-	"font_face": "JetBrains Mono",
+	"font_face": "Iosevka Ralphpig",
 	"side_bar_layout": "commit_graph_as_column",
 	"hardware_acceleration": "opengl",
 	"trim_trailing_white_space_on_save": false,
@@ -22,5 +22,5 @@
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"update_check": false,
-	"editor_path": "sublime_text",
+	"editor_path": "zeditor",
 }
