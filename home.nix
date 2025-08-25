@@ -27,12 +27,14 @@ with lib.hm.gvariant; {
     ".config/sublime-text/Packages/sql-formatter" = {
       source = mkOutOfStoreSymlink .config/sublime-text/Packages/sql-formatter;
     };
-
     ".config/sublime-merge/Packages/User" = {
       source = mkOutOfStoreSymlink .config/sublime-merge/Packages/User;
     };
     ".config/zed" = {
       source = mkOutOfStoreSymlink .config/zed;
+    };
+    ".config/sql-formatter" = {
+      source = mkOutOfStoreSymlink .config/sql-formatter;
     };
   };
 
