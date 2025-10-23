@@ -1,9 +1,16 @@
 {
+  "language": "postgresql",
   "keywordCase": "upper",
   "dataTypeCase": "lower",
   "functionCase": "upper",
   "paramTypes": {
-    "named": [":"],
-    "custom": [{ "regex": "\\$\\{[^}]+\\}" }]
+    "named": [
+      ":"
+    ],
+    "custom": [
+      {
+        "regex": "\\$\\{[^}]+\\}"
+      }
+    ]
   }
 }

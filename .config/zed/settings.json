@@ -7,13 +7,17 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true
+  },
   "agent": {
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4o"
-    },
-    "version": "2"
+    }
   },
+  "tab_size": 2,
   "indent_guides": {
     "enabled": true,
     "line_width": 1,
@@ -36,27 +40,27 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "One Dark"
+    "dark": "Catppuccin Macchiato"
   },
   // Format / LSP
   "format_on_save": "on",
-  "formatter": {
-    "code_actions": {
-      "source.fixAll.eslint": true
-    }
-  },
-
   "prettier": {
     "allowed": false
   },
   "languages": {
+    // "TypeScript": {
+    //   "language_servers": ["typescript-language-server"]
+    // },
     "SQL": {
       "formatter": {
         "external": {
           "command": "sql-formatter",
-          "arguments": ["--config", "/home/ralphpig/.config/sql-formatter/config.json"]
+          "arguments": [
+            "--config",
+            "/home/ralphpig/.config/sql-formatter/config.json"
+          ]
         }
       }
     }
-  },
+  }
 }
