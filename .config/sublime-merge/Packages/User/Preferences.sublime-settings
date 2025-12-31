@@ -23,4 +23,5 @@
 	"translate_tabs_to_spaces": true,
 	"update_check": false,
 	"editor_path": "zeditor",
+	"ignore_diff_white_space": true,
 }

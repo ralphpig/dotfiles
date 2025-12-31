@@ -11,10 +11,6 @@ with lib.hm.gvariant; {
   home.homeDirectory = "/home/ralphpig";
 
   home.packages = with pkgs; [
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-
     gnomeExtensions.vitals
     gnomeExtensions.windownavigator
     gnomeExtensions.places-status-indicator
@@ -45,9 +41,11 @@ with lib.hm.gvariant; {
   # Programs
   programs.git = {
     enable = true;
-    userEmail = "mail@ralphpig.dev";
-    userName = "Mike";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Mike";
+        email = "mail@ralphpig.dev";
+      };
       safe.directory = "*";
     };
   };

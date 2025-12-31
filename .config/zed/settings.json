@@ -7,14 +7,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "code_actions_on_format": {
-    "source.fixAll.eslint": true
-  },
-  "agent": {
-    "default_profile": "write",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
+  /* AI */
+  // "agent": {
+  //   "default_profile": "write",
+  //   "default_model": {
+  //     "provider": "copilot_chat",
+  //     "model": "gpt-4o"
+  //   }
+  // },
+  "soft_wrap": "none",
+  "allow_rewrap": "in_comments",
+  "show_wrap_guides": true,
+  "agent_servers": {
+    "codex": {
+      "command": "codex-acp"
     }
   },
   "tab_size": 2,
@@ -25,14 +31,14 @@
     "coloring": "fixed",
     "background_coloring": "disabled"
   },
-  // Vim
+  /* Vim */
   "base_keymap": "SublimeText",
   "vim_mode": true,
   "vim": {
     // "use_system_clipboard": "on_yank"
     "use_system_clipboard": "never"
   },
-  // Font
+  /* Font */
   "ui_font_size": 14,
   "ui_font_family": "Iosevka Ralphpig",
   "buffer_font_size": 12,
@@ -42,15 +48,31 @@
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Macchiato"
   },
-  // Format / LSP
+  /* Format / LSP */
   "format_on_save": "on",
   "prettier": {
     "allowed": false
   },
   "languages": {
-    // "TypeScript": {
-    //   "language_servers": ["typescript-language-server"]
-    // },
+    "Vue.js": {
+      "formatter": [], // disabled: only use eslint
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "JavaScript": {
+      "formatter": [], // disabled: only use eslint
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      // "language_servers": ["typescript-language-server"]
+      "formatter": [], // disabled: only use eslint
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
     "SQL": {
       "formatter": {
         "external": {
