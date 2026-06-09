@@ -4,7 +4,8 @@
   pkgs,
   ...
 }:
-with lib.hm.gvariant; {
+with lib.hm.gvariant;
+{
   programs.home-manager.enable = true;
 
   home.username = "ralphpig";
@@ -202,7 +203,6 @@ with lib.hm.gvariant; {
       custom-font = "Iosevka Ralphpig Term 10";
     };
 
-
     # Not used
     "org/gnome/shell/extensions/system-monitor" = {
       show-upload = false;
@@ -229,35 +229,35 @@ with lib.hm.gvariant; {
     # };
 
     "org/gnome/desktop/wm/keybindings" = {
-      switch-to-workspace-left = ["<Super>a"];
-      switch-to-workspace-right = ["<Super>d"];
-      switch-to-workspace-1 = ["<Super>1"];
-      switch-to-workspace-2 = ["<Super>2"];
-      switch-to-workspace-3 = ["<Super>3"];
-      switch-to-workspace-4 = ["<Super>4"];
-      switch-to-workspace-5 = ["<Super>5"];
-      switch-to-workspace-6 = ["<Super>6"];
-      switch-to-workspace-7 = ["<Super>7"];
-      switch-to-workspace-8 = ["<Super>8"];
-      switch-to-workspace-9 = ["<Super>9"];
+      switch-to-workspace-left = [ "<Super>a" ];
+      switch-to-workspace-right = [ "<Super>d" ];
+      switch-to-workspace-1 = [ "<Super>1" ];
+      switch-to-workspace-2 = [ "<Super>2" ];
+      switch-to-workspace-3 = [ "<Super>3" ];
+      switch-to-workspace-4 = [ "<Super>4" ];
+      switch-to-workspace-5 = [ "<Super>5" ];
+      switch-to-workspace-6 = [ "<Super>6" ];
+      switch-to-workspace-7 = [ "<Super>7" ];
+      switch-to-workspace-8 = [ "<Super>8" ];
+      switch-to-workspace-9 = [ "<Super>9" ];
 
-      close = ["<Shift><Super>q"];
+      close = [ "<Shift><Super>q" ];
     };
     "org/gnome/shell/keybindings" = {
-      switch-to-application-1 = [];
-      switch-to-application-2 = [];
-      switch-to-application-3 = [];
-      switch-to-application-4 = [];
-      switch-to-application-5 = [];
-      switch-to-application-6 = [];
-      switch-to-application-7 = [];
-      switch-to-application-8 = [];
-      switch-to-application-9 = [];
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
+      switch-to-application-5 = [ ];
+      switch-to-application-6 = [ ];
+      switch-to-application-7 = [ ];
+      switch-to-application-8 = [ ];
+      switch-to-application-9 = [ ];
     };
 
     "org/gnome/mutter/keybindings" = {
       # disable <Super>p display type switching
-      switch-monitor = ["XF86Display"];
+      switch-monitor = [ "XF86Display" ];
     };
 
     # Custom Keybinds

@@ -15,6 +15,59 @@
   //     "model": "gpt-4o"
   //   }
   // },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "ssh_connections": [
+    {
+      "host": "10.65.10.201",
+      "username": "ralphpig",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/etc/nixos"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ralphpig"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "nas.ralphpig.dev",
+      "username": "ralphpig",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/mnt/core/./"
+          ]
+        },
+        {
+          "paths": [
+            "/mnt/core/config/nixos-lab-proxy"
+          ]
+        }
+      ]
+    }
+  ],
   "soft_wrap": "none",
   "allow_rewrap": "in_comments",
   "show_wrap_guides": true,
@@ -46,7 +99,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Catppuccin Frappé - No Italics"
   },
   /* Format / LSP */
   "format_on_save": "on",
